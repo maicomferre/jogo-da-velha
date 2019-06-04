@@ -116,8 +116,8 @@ namespace jogo_da_velha
                     int x, y;
                     try
                     {
-                        x = int.Parse(cord[0]);
-                        y = int.Parse(cord[1]);
+                        y = int.Parse(cord[0]);
+                        x = int.Parse(cord[1]);
                     }
                     catch (Exception e)
                     {
