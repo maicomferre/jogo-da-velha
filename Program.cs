@@ -97,7 +97,6 @@ namespace jogo_da_velha
                 p2 = backup_p2;
             }
 
-            int a, b;
             bool player = false;
             bool in_game = true;
 
@@ -113,11 +112,11 @@ namespace jogo_da_velha
                     Console.Write("\n\nVez do {0}\nDigite local: ", player_name);
                     string[] cord = Console.ReadLine().Split(' ');
 
-                    int x, y;
+                    byte x, y;
                     try
                     {
-                        y = int.Parse(cord[0]);
-                        x = int.Parse(cord[1]);
+                        y = byte.Parse(cord[0]);
+                        x = byte.Parse(cord[1]);
                     }
                     catch (Exception e)
                     {
