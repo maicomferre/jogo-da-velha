@@ -99,6 +99,7 @@ namespace jogo_da_velha
 
             bool player = false;
             bool in_game = true;
+            byte game_over = 0;
 
             while (in_game)
             {
@@ -143,7 +144,7 @@ namespace jogo_da_velha
                     else
                         p2.Jogadas++;
 
-
+                    game_over++;
                     if (CheckIfIsTrue(velha))
                     {
                         if (player)
@@ -166,6 +167,15 @@ namespace jogo_da_velha
                         Console.WriteLine("O jogador {0} ganhou!", player_name);
 
                         in_game = false;
+                    }
+                    else
+                    {
+                        if(game_over == 9)
+                        {
+                            Console.WriteLine("Velha");
+                            in_game = false;
+
+                        }
                     }
                     break;
                 }
@@ -222,26 +232,24 @@ namespace jogo_da_velha
         }
         static bool CheckIfIsTrue(string[,] v)
         {
-            // X = 1 || 0 = 2
             for (int i = 0; i < 3; i++)
             {
-                if (v[i, 0] == v[i, 1] && v[i, 1] == v[i, 2])
+                if (v[i, 0] != " ")
                 {
-                    if (v[i, 0] == "X" || v[i, 0] == "O") return true;
+                    if (v[i, 0] == v[i, 1] && v[i, 1] == v[i, 2]) return true;
                 }
-                if (v[0, i] == v[1, i] && v[1, i] == v[2, i])
+                if(v[0, i] != " ")
                 {
-                    if (v[0, i] == "X" || v[0, i] == "O") return true;
+                    if (v[0, i] == v[1, i] && v[1, i] == v[2, i])  return true;
                 }
             }
-            if (v[0, 0] == v[1, 1] && v[1, 1] == v[2, 2])
+
+            if (v[1, 1] != " ")
             {
-                if (v[1, 1] == "X" || v[1, 1] == "O") return true;
+                if (v[0, 0] == v[1, 1] && v[1, 1] == v[2, 2]) return true;
+                if (v[1, 2] == v[1, 1] && v[1, 1] == v[2, 0]) return true;
             }
-            if (v[1, 2] == v[1, 1] && v[1, 1] == v[2, 0])
-            {
-                if (v[1, 1] == "X" || v[1, 1] == "O") return true;
-            }
+            
             return false;
         }
     }
