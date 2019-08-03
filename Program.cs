@@ -104,7 +104,7 @@ namespace jogo_da_velha
             while (in_game)
             {
                 Console.Clear();
-                Console.WriteLine(">>> {0}[{1}] vs {2}[{3}]\n", p1.Nome, p1.Jogadas, p2.Nome, p2.Jogadas);
+                Console.WriteLine(">>> {0}[{1}][X] vs {2}[{3}][O]\n", p1.Nome, p1.Jogadas, p2.Nome, p2.Jogadas);
                 DrawGame(velha);
 
                 while (true)
